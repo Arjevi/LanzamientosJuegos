@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">AppLanzamientosJuegos</string>
+    <string name="action_settings">Settings</string>
+
+    <!--Main Activity-->
+    <string name="btnLogin">Iniciar sesión</string>
+    <string name="btnRegistro">¡Regístrate!</string>
+    <string name="title_activity_registro">RegistroActivity</string>
+
+    <!--Registro Activity-->
+    <string name="btnRegistrar">Registrarse</string>
+</resources>
