@@ -26,17 +26,18 @@
         <Button
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="@string/btnLogin"
-            android:id="@+id/MAbtnLogin"
+            android:text="@string/btnRegistro"
+            android:id="@+id/MAbtnRegistro"
             android:layout_gravity="center_horizontal"
             style="@style/estiloBotonAzul" />
 
         <Button
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="@string/btnRegistro"
-            android:id="@+id/MAbtnRegistro"
+            android:text="@string/btnLogin"
+            android:id="@+id/MAbtnVerJuego"
             android:layout_gravity="center_horizontal"
             style="@style/estiloBotonAzul" />
+
     </LinearLayout>
 </RelativeLayout>

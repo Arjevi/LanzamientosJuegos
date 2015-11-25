@@ -14,34 +14,26 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/RAtxtUser"
+            android:id="@+id/RAtxtJuego"
             android:layout_gravity="center_horizontal"
-            android:hint="Usuario"
+            android:hint="Nombre del juego"
             style="@style/estiloTxtBlue" />
 
-        <EditText
-            android:layout_width="match_parent"
+        <Spinner
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/RAtxtPass1"
-            android:layout_gravity="center_horizontal"
-            android:hint="Contraseña"
-            style="@style/estiloTxtBlue" />
+            android:id="@+id/RAspinnerPlataforma" />
 
-        <EditText
-            android:layout_width="match_parent"
+        <Spinner
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/RAtxtPass2"
-            android:layout_gravity="center_horizontal"
-            android:hint="Repetir contraseña"
-            style="@style/estiloTxtBlue" />
+            android:id="@+id/RAspineerGenero" />
 
-        <EditText
-            android:layout_width="match_parent"
+        <CheckBox
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/RAtxtEmail"
-            android:layout_gravity="center_horizontal"
-            android:hint="Email"
-            style="@style/estiloTxtBlue" />
+            android:text="@string/chkFinalizado"
+            android:id="@+id/RAchkFinalizado" />
 
         <Button
             android:layout_width="wrap_content"

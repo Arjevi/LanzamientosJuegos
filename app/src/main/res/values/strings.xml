@@ -3,10 +3,11 @@
     <string name="action_settings">Settings</string>
 
     <!--Main Activity-->
-    <string name="btnLogin">Iniciar sesión</string>
-    <string name="btnRegistro">¡Regístrate!</string>
+    <string name="btnLogin">Mis juegos</string>
+    <string name="btnRegistro">Nuevo Juego</string>
     <string name="title_activity_registro">RegistroActivity</string>
 
     <!--Registro Activity-->
-    <string name="btnRegistrar">Registrarse</string>
+    <string name="btnRegistrar">Registar</string>
+    <string name="chkFinalizado">Finalizado</string>
 </resources>
