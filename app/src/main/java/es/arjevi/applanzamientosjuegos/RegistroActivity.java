@@ -14,12 +14,14 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
 import java.io.IOException;
 
 import BaseDatosHelper.DatabaseHelper;
+import Clases.Juego;
 
 
 public class RegistroActivity extends ActionBarActivity {
@@ -52,7 +54,7 @@ public class RegistroActivity extends ActionBarActivity {
 
         //Carga de la base de datos: Esto se hará solo 1 vez, porque aquí comprobamos que exista o no unaversion nueva
 
-        dbh=new DatabaseHelper(this);
+        /*dbh=new DatabaseHelper(this);
         try{
 
             dbh.createDataBase();
@@ -80,15 +82,8 @@ public class RegistroActivity extends ActionBarActivity {
             }
             while(c.moveToNext());
 
-            Log.i("sadasdas", "id devuelta"+id);
+            Log.i("sadasdas", "id devuelta"+id);*/
         }
-
-
-
-
-
-
-    }
 
     private void eventos(){
 
@@ -100,6 +95,11 @@ public class RegistroActivity extends ActionBarActivity {
                 String genero = spinnerGenero.getSelectedItem().toString();
                 String plataforma = spinnerPlataforma.getSelectedItem().toString();
                 boolean finalizado = chkFinalizado.isChecked();
+
+                Juego juego = new Juego(nombre,genero,plataforma,finalizado);
+
+                Toast toast = Toast.makeText(getApplicationContext(), juego.toString(),Toast.LENGTH_LONG);
+                toast.show();
 
             }
         });

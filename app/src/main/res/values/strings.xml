@@ -10,4 +10,7 @@
     <!--Registro Activity-->
     <string name="btnRegistrar">Registar</string>
     <string name="chkFinalizado">Finalizado</string>
+    <string name="title_activity_mis_juegos">MisJuegosActivity</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>
