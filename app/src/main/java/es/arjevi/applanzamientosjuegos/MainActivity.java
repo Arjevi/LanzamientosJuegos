@@ -12,17 +12,27 @@ import android.widget.Button;
 public class MainActivity extends ActionBarActivity {
 
     private Button bt_insertar;
+    private Button bt_verJuegos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         bt_insertar=(Button) findViewById(R.id.MAbtnRegistro);
+        bt_verJuegos = (Button) findViewById(R.id.MAbtnVerJuegos);
 
         bt_insertar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i =new Intent(getApplicationContext(), RegistroActivity.class);
+                startActivity(i);
+            }
+        });
+
+        bt_verJuegos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), MisJuegosActivity.class);
                 startActivity(i);
             }
         });

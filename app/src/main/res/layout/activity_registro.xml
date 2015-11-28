@@ -17,23 +17,28 @@
             android:id="@+id/RAtxtJuego"
             android:layout_gravity="center_horizontal"
             android:hint="Nombre del juego"
-            style="@style/estiloTxtBlue" />
+            style="@style/estiloTxtBlue"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="25dp" />
 
         <Spinner
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/RAspinnerPlataforma" />
+            android:id="@+id/RAspinnerPlataforma"
+            android:layout_marginBottom="25dp" />
 
         <Spinner
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/RAspineerGenero" />
+            android:id="@+id/RAspineerGenero"
+            android:layout_marginBottom="25dp" />
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/chkFinalizado"
-            android:id="@+id/RAchkFinalizado" />
+            android:id="@+id/RAchkFinalizado"
+            android:layout_marginBottom="25dp" />
 
         <Button
             android:layout_width="wrap_content"

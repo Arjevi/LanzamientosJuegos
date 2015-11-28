@@ -1,24 +1,18 @@
 package es.arjevi.applanzamientosjuegos;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
-
-import java.io.IOException;
 
 import BaseDatosHelper.DatabaseHelper;
 import Clases.Juego;
@@ -96,10 +90,26 @@ public class RegistroActivity extends ActionBarActivity {
                 String plataforma = spinnerPlataforma.getSelectedItem().toString();
                 boolean finalizado = chkFinalizado.isChecked();
 
-                Juego juego = new Juego(nombre,genero,plataforma,finalizado);
+                if(nombre.matches("")){
+                    //Mostrar cuadro de dialogo en caso de dejar campos vacios
+                    AlertDialog ad = new AlertDialog.Builder(v.getContext())
+                            .create();
+                    ad.setCancelable(false);
+                    ad.setTitle("Error");
+                    ad.setMessage("No puede dejar campos vacios");
+                    ad.setButton(v.getContext().getString(R.string.btnCuadroDialogo), new DialogInterface.OnClickListener() {
 
-                Toast toast = Toast.makeText(getApplicationContext(), juego.toString(),Toast.LENGTH_LONG);
-                toast.show();
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    ad.show();
+                }else {
+
+                    Juego juego = new Juego(nombre, genero, plataforma, finalizado);
+
+                   //Insertar en BD
+                }
 
             }
         });

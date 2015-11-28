@@ -11,6 +11,13 @@
     <string name="btnRegistrar">Registar</string>
     <string name="chkFinalizado">Finalizado</string>
     <string name="title_activity_mis_juegos">MisJuegosActivity</string>
+    <string name="btnCuadroDialogo">Ok</string>
+
+    <!--Mis juegos Activity-->
+    <string name="itemTxtNombre">Nombre</string>
+    <string name="itemTxtPlataforma">Plataforma</string>
+    <string name="itemTxtGenero">Genero</string>
+    <string name="itemTxtFinalizado">Finalizado</string>
 
     <string name="hello_world">Hello world!</string>
 </resources>
