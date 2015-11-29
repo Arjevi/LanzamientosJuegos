@@ -44,9 +44,9 @@ public class AdaptadorJuego extends ArrayAdapter {
         TextView finalizado = (TextView)item.findViewById(R.id.itemTxtFinalizado);
 
         if(lstJuegos.get(position).getFinalizado()){
-            finalizado.setText("Finaliado");
+            finalizado.setText("Completado");
         }else{
-            finalizado.setText("No finaliado");
+            finalizado.setText("Incompleto");
         }
 
         return(item);

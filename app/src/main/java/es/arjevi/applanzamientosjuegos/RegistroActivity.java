@@ -1,6 +1,7 @@
 package es.arjevi.applanzamientosjuegos;
 
 import android.app.AlertDialog;
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -46,37 +47,6 @@ public class RegistroActivity extends ActionBarActivity {
         cargarSpinners();
         eventos();
 
-        //Carga de la base de datos: Esto se hará solo 1 vez, porque aquí comprobamos que exista o no unaversion nueva
-
-        /*dbh=new DatabaseHelper(this);
-        try{
-
-            dbh.createDataBase();
-        }
-        catch(IOException e){
-
-            e.printStackTrace();
-        }
-        dbh=new DatabaseHelper(this);
-        db=dbh.getReadableDatabase();
-        c=db.rawQuery("SELECT * FROM juego", null);
-        String nombre, plataforma, genero;
-        int id, finalizado;
-
-        if(c.moveToFirst()){
-
-            do{
-                id=c.getInt(1);
-                nombre=c.getString(2);
-                plataforma=c.getString(3);
-                genero=c.getString(4);
-                finalizado=c.getInt(5);
-
-                Log.i("-------i", c.toString());
-            }
-            while(c.moveToNext());
-
-            Log.i("sadasdas", "id devuelta"+id);*/
         }
 
     private void eventos(){
@@ -108,7 +78,22 @@ public class RegistroActivity extends ActionBarActivity {
 
                     Juego juego = new Juego(nombre, genero, plataforma, finalizado);
 
-                   //Insertar en BD
+                    DatabaseHelper dbh = new DatabaseHelper (getApplicationContext());
+                    SQLiteDatabase bd = dbh.getWritableDatabase();
+
+                    ContentValues cv = new ContentValues();
+                    cv.put(DatabaseHelper.NOMBRE, nombre);
+                    cv.put(DatabaseHelper.PLATAFORMA, plataforma);
+                    cv.put(DatabaseHelper.GENERO, genero);
+
+                    if(finalizado){
+                        cv.put(DatabaseHelper.FINALIZADO, 1);
+                    }else{
+                        cv.put(DatabaseHelper.FINALIZADO, 0);
+                    }
+
+
+                    bd.close();
                 }
 
             }

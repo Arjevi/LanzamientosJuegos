@@ -8,7 +8,7 @@
     <string name="title_activity_registro">RegistroActivity</string>
 
     <!--Registro Activity-->
-    <string name="btnRegistrar">Registar</string>
+    <string name="btnRegistrar">Registrar</string>
     <string name="chkFinalizado">Finalizado</string>
     <string name="title_activity_mis_juegos">MisJuegosActivity</string>
     <string name="btnCuadroDialogo">Ok</string>
