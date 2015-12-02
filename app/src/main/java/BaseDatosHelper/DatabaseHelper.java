@@ -28,12 +28,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	}
 
 
-
 	public void onCreate( SQLiteDatabase db)
 	{
 		db.execSQL (" CREATE TABLE juegos (id INTEGER PRIMARY KEY, nombre TEXT, plataforma TEXT, genero TEXT, finalizado INTEGER);");
 	}
-
 
 	public void onUpgrade ( SQLiteDatabase db, int oldVersion, int newVersion)
 	{// Borrado y creación de la bd y tabla si se cambia el 1 del constructor, que indará nueva versión

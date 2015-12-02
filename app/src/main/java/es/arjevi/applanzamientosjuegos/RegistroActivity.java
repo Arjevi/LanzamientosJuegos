@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -25,8 +26,8 @@ public class RegistroActivity extends ActionBarActivity {
     private Spinner spinnerPlataforma, spinnerGenero;
     private CheckBox chkFinalizado;
     private Button btnRegistrar;
-    private String[] elementos_plataforma = {"PC","PS4","PS3","XONE","X360","3DS","Wii U"};
-    private String[] elementos_genero = {"Accion","Rol","FPS","Deportes","Carreras","Indie","Estrategia"};
+    private String[] elementos_plataforma = {"Seleccione plataforma","PC","PS4","PS3","XONE","X360","3DS","Wii U"};
+    private String[] elementos_genero = {"Seleccione genero","Accion","Rol","FPS","Deportes","Carreras","Indie","Estrategia"};
 
     public DatabaseHelper dbh;
     public SQLiteDatabase db;
@@ -57,10 +58,11 @@ public class RegistroActivity extends ActionBarActivity {
 
                 String nombre = nombreJuego.getText().toString();
                 String genero = spinnerGenero.getSelectedItem().toString();
+
                 String plataforma = spinnerPlataforma.getSelectedItem().toString();
                 boolean finalizado = chkFinalizado.isChecked();
 
-                if(nombre.matches("")){
+                if(nombre.matches("") || spinnerGenero.getSelectedItemPosition()==0 || spinnerPlataforma.getSelectedItemPosition()==0){
                     //Mostrar cuadro de dialogo en caso de dejar campos vacios
                     AlertDialog ad = new AlertDialog.Builder(v.getContext())
                             .create();
@@ -81,19 +83,30 @@ public class RegistroActivity extends ActionBarActivity {
                     DatabaseHelper dbh = new DatabaseHelper (getApplicationContext());
                     SQLiteDatabase bd = dbh.getWritableDatabase();
 
-                    ContentValues cv = new ContentValues();
-                    cv.put(DatabaseHelper.NOMBRE, nombre);
-                    cv.put(DatabaseHelper.PLATAFORMA, plataforma);
-                    cv.put(DatabaseHelper.GENERO, genero);
+                   try{
+                       if(finalizado){
+                           bd.execSQL("INSERT INTO juegos (nombre,plataforma,genero,finalizado) VALUES ('"+nombre+"','"+plataforma+
+                                   "','"+genero+"',1);");
 
-                    if(finalizado){
-                        cv.put(DatabaseHelper.FINALIZADO, 1);
-                    }else{
-                        cv.put(DatabaseHelper.FINALIZADO, 0);
-                    }
+                       }else{
+                           bd.execSQL("INSERT INTO juegos (nombre,plataforma,genero,finalizado) VALUES ('"+nombre+"','"+plataforma+
+                                   "','"+genero+"',0);");
+                       }
+                       Toast.makeText(v.getContext(),"Se ha insertado correctamente.",Toast.LENGTH_SHORT).show();
+
+                       nombreJuego.setText("");
+                       spinnerGenero.setSelection(0);
+                       spinnerPlataforma.setSelection(0);
+                       chkFinalizado.setChecked(false);
+
+                   }catch(SQLException ex){
+                       Toast.makeText(v.getContext(),"No se ha podido insertar.",Toast.LENGTH_SHORT).show();
+                   }
 
 
                     bd.close();
+
+
                 }
 
             }

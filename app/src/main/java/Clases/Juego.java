@@ -1,9 +1,12 @@
 package Clases;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by JAVI on 26/11/2015.
  */
-public class Juego {
+public class Juego{
 
     private int id;
     private String nombre;
@@ -72,4 +75,5 @@ public class Juego {
                 ", finalizado=" + finalizado +
                 '}';
     }
+
 }
